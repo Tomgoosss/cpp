@@ -4,4 +4,9 @@
 #include <iostream>  
 #include <string>    
 
+class test{
+	public;
+		
+}
+
 #endif
