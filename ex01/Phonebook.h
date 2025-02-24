@@ -4,6 +4,7 @@
 #include <iostream>  
 #include <string>  
 #include "Contact.h"
+#include <algorithm> 
 
 
 class phonebook{

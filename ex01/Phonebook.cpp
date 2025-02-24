@@ -85,7 +85,7 @@ void phonebook::search()
 		return;
 	}
 	std::cout << " index     | first name | last name  | nick name \n";
-	std::cout << "--------------------------------------\n";
+	std::cout << "-------------------------------------------------\n";
 	for (int i = 1; i < total_contacts; i++) {
 		std::cout << " " << i << "         | ";
 		std::cout << lengthenString(contact[i].getfirstname()) << " | ";
