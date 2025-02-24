@@ -6,7 +6,7 @@
 
 class Zombie {
 public:
-    void announce(void);
+    void announce(void) const;
 	void randomChump(std::string name);
 	Zombie* newZombie(std::string name);
     Zombie(std::string name);
