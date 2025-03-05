@@ -1,6 +1,7 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) : _name(name){
+Zombie::Zombie()
+{
 	std::cout << "Zombie " << _name << " has risen from the ground" << std::endl;
 }
 
@@ -11,4 +12,8 @@ Zombie::~Zombie()
 
 void Zombie::announce(void) const {
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+void Zombie::setName(std::string name){
+	_name = name;
 }
