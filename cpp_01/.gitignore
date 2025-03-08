@@ -1,0 +1,29 @@
+# VS Code files
+.vscode/
+*.code-workspace
+
+# Object files
+*.o
+*.obj
+
+# Executables
+Harl
+zombie
+replace_words
+ptr
+Unnecessary_violence
+
+# Temp files
+*~
+.DS_Store
+
+# Build directories
+build/
+Debug/
+Release/
+
+# Replace files
+*.replace
+
+# Dependency files
+*.d
