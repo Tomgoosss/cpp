@@ -1,4 +1,4 @@
-#include "Phonebook.h"
+#include "Phonebook.hpp"
 
 void phonebook::add()
 {
@@ -68,48 +68,63 @@ void phonebook::remove_white(std::string &str)
 	str.erase(end_pos, str.end());
 }
 
-std::string phonebook::lengthenString(const std::string& input){
-	std::string temp = input ;
-	if(input.length() < 10)
-		temp += std::string(10 - input.length(), ' ');
-	else if(input.length() > 10)
-		temp = input.substr(0, 9) + '.';
-	return(temp);
-	}
+std::string phonebook::format(const std::string& str) const
+{
+    std::string result;
+    if (str.length() <= 10) {
+        result = str;
+        return std::string(10 - result.length(), ' ') + result;
+    } else {
+        result = str.substr(0, 9) + ".";
+        return result;
+    }
+}
 
 void phonebook::search()
 {
-	std::string input;
-	if (total_contacts == 0) {
-		std::cout << "no contacts active";
-		return;
-	}
-	std::cout << " index     | first name | last name  | nick name \n";
-	std::cout << "-------------------------------------------------\n";
-	for (int i = 1; i < total_contacts; i++) {
-		std::cout << " " << i << "         | ";
-		std::cout << lengthenString(contact[i].getfirstname()) << " | ";
-		std::cout << lengthenString(contact[i].getlastname()) << " | ";
-		std::cout << lengthenString(contact[i].getnickname()) << "\n\n";
-	}
-	std::cout << " index = ";
-	while (true) {
-		std::getline(std::cin, input);
-		if (input.length() == 1 && std::isdigit(input[0])) {
-			int index = input[0] - '0';
-			if (index >= 0 && index < total_contacts) {
-				std::cout << "   index  | first name | last name  | nick name  | phone num  | secret    \n";
-				std::cout << "--------------------------------------------------------------------------\n";
-				std::cout << index << "         | ";
-				std::cout << lengthenString(contact[index].getfirstname()) << " | ";
-				std::cout << lengthenString(contact[index].getlastname()) << " | ";
-				std::cout << lengthenString(contact[index].getnickname()) << " | ";
-				std::cout << lengthenString(contact[index].getphonenumber()) << " | ";
-				std::cout << lengthenString(contact[index].getdarkestsecret()) << "\n\n";
-				break;
-			}
-		}
-	}
+    std::string input;
+    if (total_contacts == 0) {
+        std::cout << "no contacts active";
+        return;
+    }
+    std::cout << " index     | first name | last name  | nick name \n";
+    std::cout << "-------------------------------------------------\n";
+    for (int i = 1; i < total_contacts; i++) {
+        std::cout << " " << i << "         | ";
+        std::cout << format(contact[i].getfirstname()) << " | ";
+        std::cout << format(contact[i].getlastname()) << " | ";
+        std::cout << format(contact[i].getnickname()) << "\n\n";
+    }
+    while (true) {
+        std::cout << " index = ";
+        std::getline(std::cin, input);
+        if (input.length() == 1 && std::isdigit(input[0])) {
+            int index = input[0] - '0';
+            if (index > 0 && index < total_contacts) {
+                std::cout 
+                << std::setw(10) << "index" << " | "
+                << std::setw(10) << "first name" << " | "
+                << std::setw(10) << "last name" << " | "
+                << std::setw(10) << "nick name" << " | "
+                << std::setw(10) << "phone num" << " | "
+                << std::setw(10) << "secret" << "\n";
+                std::cout << "--------------------------------------------------------------------------\n";
+                std::cout 
+                << std::setw(10) << index << " | "
+                << format(contact[index].getfirstname()) << " | "
+                << format(contact[index].getlastname()) << " | "
+                << format(contact[index].getnickname()) << " | "
+                << format(contact[index].getphonenumber()) << " | "
+                << format(contact[index].getdarkestsecret()) << "\n\n";
+                break;
+            }
+            else
+                std::cout << "Invalid index" << std::endl;
+
+        }
+        else 
+            std::cout << "Invalid index" << std::endl;
+    }
 }
 
 void phonebook::exit()
