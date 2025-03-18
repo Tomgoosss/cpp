@@ -1,7 +1,7 @@
-NAME = zombie
+NAME = fight
 CC = c++
 FLAGS = -Wall -Wextra -std=c++98 #-Werror 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

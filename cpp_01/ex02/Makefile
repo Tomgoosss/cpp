@@ -1,5 +1,5 @@
 NAME = ptr
-CC = g++
+CC = c++
 FLAGS = -Wall -Wextra -std=c++98 #-Werror 
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)

@@ -1,7 +1,7 @@
-NAME = zombie
+NAME = fixed_point
 CC = c++
 FLAGS = -Wall -Wextra -std=c++98 #-Werror 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC = Main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
