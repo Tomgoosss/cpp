@@ -6,11 +6,11 @@
 /*   By: tgoossen <tgoossen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:02:16 by tgoossen          #+#    #+#             */
-/*   Updated: 2024/12/13 14:44:57 by tgoossen         ###   ########.fr       */
+/*   Updated: 2025/03/10 13:28:34 by tgoossen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.h"
+#include "Contact.hpp"
 
 // Setters
 void Contact::setfirstname(std::string fname) { first_name = fname; }

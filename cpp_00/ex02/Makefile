@@ -1,6 +1,6 @@
 NAME = bank
 CC = g++
-FLAGS = -Wall -Wextra -std=c++98 #-Werror 
+FLAGS = -Wall -Wextra #-std=c++98 #-Werror 
 SRC = Account.cpp tests.cpp
 OBJ = $(SRC:.cpp=.o)
 
