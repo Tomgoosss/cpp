@@ -25,6 +25,7 @@ void Harl::error(void)
 }
 
 void Harl::complain(std::string level){
+	static bool hasComplainedOnce = false;
 	typedef void (Harl::*Fpntr)();
 
 	Fpntr functions[4] = {
@@ -46,5 +47,11 @@ void Harl::complain(std::string level){
 			return;
 		}
 	}
-	std::cout << "Harl just died....." << std::endl;
+	
+	 if (hasComplainedOnce)
+        std::cout << "You just stabbed a dead Harl.....stop stabbing Harl" << std::endl;
+    else {
+        std::cout << "Harl just died....." << std::endl;
+        hasComplainedOnce = true;
+    }
 }

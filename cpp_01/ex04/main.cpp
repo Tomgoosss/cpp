@@ -2,13 +2,13 @@
 
 bool FileReplacer::open_file(const std::string &filename)
 {
-	_source.open(filename, std::fstream::in);
+	_source.open(filename.c_str(), std::fstream::in);
 	if (!_source.is_open())
 	return (false);
 
 	std::string new_filename = filename + ".replace";
 	// std::string new_filename = "../" + filename + ".replace";
-	_dest.open(new_filename, std::fstream::out);
+	_dest.open(new_filename.c_str, std::fstream::out);
 
 	return _dest.is_open();
 }
