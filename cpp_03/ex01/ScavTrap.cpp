@@ -1,15 +1,15 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
-{					  // Call base constructor
-	_hitPoints = 100; // Override defaults
+{
+	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
 	std::cout << "ScavTrap " << _name << " has been created!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &a) : ClapTrap(a)
-{ // Call base copy constructor
+{
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
@@ -22,7 +22,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &a)
 {
 	if (this != &a)
 	{
-		ClapTrap::operator=(a); // Call base assignment
+		ClapTrap::operator=(a);
 	}
 	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	return *this;
@@ -47,5 +47,15 @@ void ScavTrap::attack(const std::string &target)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " << _name << " is now in Gate keeper mode!" << std::endl;
+    if (_hitPoints == 0)
+    {
+        std::cout << "ScavTrap " << _name << " can't enter gate keeper mode, it's out of hit points!" << std::endl;
+        return;
+    }
+    if (_energyPoints == 0)
+    {
+        std::cout << "ScavTrap " << _name << " can't enter gate keeper mode, no energy left!" << std::endl;
+        return;
+    }
+    std::cout << "ScavTrap " << _name << " is now in Gate keeper mode!" << std::endl;
 }
