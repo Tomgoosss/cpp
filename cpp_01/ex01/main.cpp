@@ -8,7 +8,7 @@ int main()
 	{
 		zombs = zombieHorde(n ,"wouter");
 	}
-	catch (std::bad_alloc &e) {
+	catch (std::exception &e) {
 		std::cerr << "error: " << e.what() << std::endl;
 		return (1);
 	}

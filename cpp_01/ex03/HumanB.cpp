@@ -8,7 +8,7 @@ void HumanB::attack()
 		std::cout << _name << " has no weapon to attack with" << std::endl;
 }
 
-HumanB::HumanB(std::string name) : _name(name), _weapon(nullptr)
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 {
 	std::cout << "constructor HumanB is called" << std::endl;
 }
